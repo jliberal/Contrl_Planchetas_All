@@ -1,4 +1,4 @@
-{ 
+{
   "projectType": [
     "sap.watt.uitools.ide.fiori",
     "com.watt.common.builder.sapui5clientbuild"

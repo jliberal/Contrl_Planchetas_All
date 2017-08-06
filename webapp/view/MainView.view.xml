@@ -1,10 +1,9 @@
-<mvc:View controllerName="cl.everis.cgr.actvinst.allCGRActvInstAll.controller.MainView" xmlns:html="http://www.w3.org/1999/xhtml"
-	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-	<App>
-		<pages>
-			<Page title="{i18n>title}">
-				<content></content>
-			</Page>
-		</pages>
-	</App>
+<mvc:View
+	controllerName="cl.everis.cgr.actvinst.allCGRActvInstAll.controller.MainView"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	busy="{appView>/busy}"
+	busyIndicatorDelay="{appView>/delay}"
+	xmlns="sap.m">
+	<SplitApp id="rootControl" />
 </mvc:View>
