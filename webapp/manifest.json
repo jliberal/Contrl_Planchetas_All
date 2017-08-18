@@ -24,7 +24,6 @@
 			"version": "1.40.12"
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -43,10 +42,8 @@
 		"supportedThemes": [
 			"sap_hcb",
 			"sap_belize"
-
 		]
 	},
-
 	"sap.ui5": {
 		"rootView": {
 			"viewName": "cl.everis.cgr.actvinst.allCGRActvInstAll.view.MainView",
@@ -74,6 +71,10 @@
 				"settings": {
 					"bundleName": "cl.everis.cgr.actvinst.allCGRActvInstAll.i18n.i18n"
 				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true
 			}
 		},
 		"routing": {
@@ -136,9 +137,15 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zcgrplanall/webapp",
+		"_version": "1.1.0"
 	}
 }

@@ -6,7 +6,8 @@
   "build": {
     "targetFolder": "dist",
     "sourceFolder": "webapp",
-    "buildRequired": true
+    "buildRequired": true,
+    "lastBuildDateTime": "Tue, 08 Aug 2017 03:54:35 GMT"
   },
   "generation": [
     {
@@ -38,5 +39,9 @@
     "notifyBeforePushLevel": "Error",
     "blockPush": false,
     "blockPushLevel": "Error"
+  },
+  "deploy": {
+    "destination": "Contraloria",
+    "name": "ZCGRPLANALL"
   }
 }

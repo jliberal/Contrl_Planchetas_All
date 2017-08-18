@@ -71,8 +71,17 @@
 			</List>-->
 				<t:TreeTable
                     id="TreeTableBasic"
-                    rows="{path:'/', parameters: {arrayNames:['TechnicalUbication']}}"
-                    selectionMode="MultiToggle"
+                    rows="{path:'/TechnicalUbicationSet', 
+	                    parameters : {
+							countMode: 'Inline',
+							treeAnnotationProperties : {
+							    hierarchyNodeFor : 'Tplnr',
+							    hierarchyLevelFor : 'HierarchyLevel',
+							    hierarchyParentNodeFor : 'Idsup',
+							    hierarchyDrillStateFor : 'DrillState'
+						    }
+				        }
+                    }"
                     enableSelectAll="false"
                     ariaLabelledBy="title">
 <!--                <toolbar>
