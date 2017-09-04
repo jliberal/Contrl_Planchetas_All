@@ -9,7 +9,7 @@
 		},
 		"dataSources": {
 			"mainService": {
-				"uri": "/sap/opu/odata/SAP/ZFI_AF_PLANCHETAS_ALL_SRV/",
+				"uri": "/destinations/Contraloria/sap/opu/odata/SAP/ZFI_AF_INST_ASSETS_ALL_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",

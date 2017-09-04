@@ -11,6 +11,15 @@
       "description": "SAPUI5 Resources"
     },
     {
+      "path": "/destinations/Contraloria",
+      "target": {
+        "type": "destination",
+        "name": "Contraloria",
+        "entryPath": "/"
+      },
+      "description": "URL Contraloria"
+    },
+    {
       "path": "/test-resources",
       "target": {
         "type": "service",

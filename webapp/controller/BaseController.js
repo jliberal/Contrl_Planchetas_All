@@ -1,8 +1,10 @@
 /*global history */
 sap.ui.define([
 		"sap/ui/core/mvc/Controller",
-		"sap/ui/core/routing/History"
-	], function (Controller, History) {
+		"sap/ui/core/routing/History",
+		"sap/m/MessageBox",
+		"sap/ui/model/json/JSONModel"
+	], function (Controller, History, MessageBox, JSONModel) {
 		"use strict";
 
 		return Controller.extend("cl.everis.cgr.actvinst.allCGRActvInstAll.controller.BaseController", {
@@ -60,9 +62,22 @@ sap.ui.define([
 				} else {
 					this.getRouter().navTo("master", {}, true);
 				}
+			},
+			showServiceError: function(vError){
+				var vText = this.getResourceBundle().getText("errorText");
+				MessageBox.error(vText,{
+					id : "metadataErrorMessageBox",
+					details: vError,
+					styleClass: this.getOwnerComponent().getContentDensityClass(),
+					actions: [MessageBox.Action.CLOSE],
+					onClose: function (sAction) {
+					}.bind(this)
+				});
+			},
+			clearModel: function(vModel){
+				var oModel = new JSONModel({});
+				this.getView().setModel(oModel,vModel);
 			}
-
 		});
-
 	}
 );

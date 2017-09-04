@@ -3,7 +3,6 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
 	xmlns="sap.m"
-	xmlns:t="sap.ui.table"
 	xmlns:u="sap.ui.unified"
 	xmlns:semantic="sap.m.semantic">
 
@@ -69,9 +68,16 @@
 					</ObjectListItem>
 				</items>
 			</List>-->
+	 	<Tree
+		    id="Tree" 
+		    itemPress="onSelectedTree"
+		    items="{path: 'treeModel>/'}">
+			<StandardTreeItem title="{treeModel>text}"/>	
+		</Tree>			
+<!--	Esta cosa se comento para poner el nuevo tree		
 				<t:TreeTable
                     id="TreeTableBasic"
-                    rows="{path:'/TechnicalUbicationSet', 
+                    rows="{path:'treeModel>/TechnicalUbicationSet', 
 	                    parameters : {
 							countMode: 'Inline',
 							treeAnnotationProperties : {
@@ -83,7 +89,7 @@
 				        }
                     }"
                     enableSelectAll="false"
-                    ariaLabelledBy="title">
+                    ariaLabelledBy="title">-->
 <!--                <toolbar>
                     <m:Toolbar>
                         <m:Title id="title" text="Clothing"/>
@@ -92,7 +98,7 @@
                         <m:Button text="Expand first level" press="onExpandFirstLevel"/>
                     </m:Toolbar>
                 </toolbar>-->
-                <t:columns>
+<!--                <t:columns>
                     <t:Column width="13rem">
                         <Label text="{i18n>ubication}"/>
                         <t:template>
@@ -100,7 +106,7 @@
                         </t:template>
                     </t:Column>
                 </t:columns>
-            </t:TreeTable>			
+            </t:TreeTable>-->			
 		</semantic:content>
 
 	</semantic:MasterPage>
