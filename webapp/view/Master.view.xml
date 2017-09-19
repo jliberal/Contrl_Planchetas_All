@@ -70,9 +70,9 @@
 			</List>-->
 	 	<Tree
 		    id="Tree" 
-		    itemPress="onSelectedTree"
+		    itemPress="onSelectedTree" 
 		    items="{path: 'treeModel>/'}">
-			<StandardTreeItem title="{treeModel>text}"/>	
+			<StandardTreeItem press="onPressNode" title="{treeModel>text}"/>	
 		</Tree>			
 <!--	Esta cosa se comento para poner el nuevo tree		
 				<t:TreeTable

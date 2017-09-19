@@ -16,6 +16,9 @@ sap.ui.define([
 		onSelectedTree: function(){
 			
 		},
+		onPressNode: function(oEvt){
+			var aux = 2;
+		},
 		readService: function(ivPath, callBack){
 			var that = this;
 			var sServiceUrl = "/destinations/Contraloria/sap/opu/odata/SAP/ZFI_AF_INST_ASSETS_ALL_SRV/";
