@@ -73,7 +73,7 @@
 		    itemPress="onSelectedTree" 
 		    items="{path: 'treeModel>/'}">
 			<StandardTreeItem press="onPressNode" title="{treeModel>text}"/>	
-		</Tree>			
+		</Tree>	
 <!--	Esta cosa se comento para poner el nuevo tree		
 				<t:TreeTable
                     id="TreeTableBasic"
