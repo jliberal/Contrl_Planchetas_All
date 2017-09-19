@@ -68,7 +68,7 @@
 					</ObjectListItem>
 				</items>
 			</List>-->
-	 	<Tree
+		<Tree
 		    id="Tree" 
 		    itemPress="onSelectedTree" 
 		    items="{path: 'treeModel>/'}">
