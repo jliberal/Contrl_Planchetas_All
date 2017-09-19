@@ -1,7 +1,8 @@
 sap.ui.define([
 	"cl/everis/cgr/actvinst/allCGRActvInstAll/controller/BaseController",
-	"sap/ui/model/json/JSONModel"
-], function(BaseController, JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"sap/ui/Device"
+], function(BaseController, JSONModel, Device) {
 	"use strict";
 	return BaseController.extend("cl.everis.cgr.actvinst.allCGRActvInstAll.controller.Master", {
 		onInit : function () {
@@ -13,11 +14,19 @@ sap.ui.define([
 			var vPath = "/hierarchy_treeSet";
 			this.readService(vPath,this.doTreeModelCallback);
 		},
-		onSelectedTree: function(){
-			
+		onSelectedTree: function(oEvt){
+			var aux = 2;	
 		},
 		onPressNode: function(oEvt){
-			var aux = 2;
+			var oNode = oEvt.getSource();
+			var oCtx1 = oNode.findAggregatedObjects();
+			var oCtx2 = oCtx1[0].findAggregatedObjects();
+			var vLocation = oCtx2[0].getText();
+			//Ya tenemos la ubicacion
+			var bReplace = !Device.system.phone;
+			this.getRouter().navTo("object", {
+				objectId : vLocation
+			}, bReplace);
 		},
 		readService: function(ivPath, callBack){
 			var that = this;

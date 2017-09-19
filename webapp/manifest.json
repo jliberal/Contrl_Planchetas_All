@@ -102,7 +102,7 @@
 					]
 				},
 				{
-					"pattern": "Customers/{objectId}",
+					"pattern": "hierarchy_treeSet/{objectId}",
 					"name": "object",
 					"target": [
 						"master",
