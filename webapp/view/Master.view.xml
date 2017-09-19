@@ -68,12 +68,17 @@
 					</ObjectListItem>
 				</items>
 			</List>-->
-	 	<Tree
+		<Tree
 		    id="Tree" 
 		    itemPress="onSelectedTree" 
 		    items="{path: 'treeModel>/'}">
+<<<<<<< HEAD
+			<StandardTreeItem title="{treeModel>text}"/>	
+		</Tree>				
+=======
 			<StandardTreeItem press="onPressNode" title="{treeModel>text}"/>	
 		</Tree>			
+>>>>>>> branch 'master' of https://github.com/jliberal/Contrl_Planchetas_All.git
 <!--	Esta cosa se comento para poner el nuevo tree		
 				<t:TreeTable
                     id="TreeTableBasic"

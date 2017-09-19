@@ -21,8 +21,9 @@ sap.ui.define([
 		},
 		readService: function(ivPath, callBack){
 			var that = this;
-			var sServiceUrl = "/destinations/Contraloria/sap/opu/odata/SAP/ZFI_AF_INST_ASSETS_ALL_SRV/";
-			var oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+			//var sServiceUrl = "/destinations/Contraloria/sap/opu/odata/SAP/ZFI_AF_INST_ASSETS_ALL_SRV/";
+			//var oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+			var oModel = this.getOwnerComponent().getModel();
 			oModel.setHeaders({
 				"DataServiceVersion": "2.0",
 				"MaxDataServiceVersion": "2.0",
@@ -58,8 +59,7 @@ sap.ui.define([
 					var nodeIn = nodesIn[i];
 					nodeOut = {
 						id: nodeIn.Nodeid,
-						text: nodeIn.Text,
-						type: nodeIn.Type,
+						text: nodeIn.Description,
 						parentId: nodeIn.Parentnodeid,
 						children: [] 
 					};
