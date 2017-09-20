@@ -1,23 +1,59 @@
-<mvc:View
-	controllerName="cl.everis.cgr.actvinst.allCGRActvInstAll.controller.Detail"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
-	xmlns="sap.m"
-	xmlns:t="sap.ui.table"
-	xmlns:u="sap.ui.unified"
-	xmlns:semantic="sap.m.semantic">
-
-	<semantic:MasterPage
-		id="page2"
-		title="{masterView>/title}"
-		navButtonPress="onNavBack"
-		showNavButton="true">
-		<semantic:subHeader>
-		</semantic:subHeader>
-
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:u="sap.ui.unified"
+	xmlns:semantic="sap.m.semantic" controllerName="cl.everis.cgr.actvinst.allCGRActvInstAll.controller.Detail">
+	<semantic:MasterPage id="page2" title="{masterView>/title}">
+		<semantic:subHeader></semantic:subHeader>
 		<semantic:content>
+			<ObjectHeader	title="{Description}" 
+							titleActive="false" 
+							id="__header0">
+				<attributes>
+					<ObjectAttribute title="{i18n>logUser}" text="{detailView>/user}"/>
+					<ObjectAttribute title="{i18n>location}" text="{Nodeid}"/>
+				</attributes>
+			</ObjectHeader>	
+			<Toolbar width="100%" id="__toolbar1"/>
+			 <Table id="idEmployeesTable"  
+					items="{AssetsByLocationSet}">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="{i18n>ActTabTitle}" level="H2"/>
+					<ToolbarSpacer/>
+					<OverflowToolbarButton type="Transparent" text="{i18n>empTabPrint}" icon="sap-icon://print" press="onPrint"/>
+				</Toolbar>
+		   </headerToolbar>
+				<columns>
+					<Column id="nameColumn1">
+						<Text text="{i18n>actCol1}" id="textColumn1" />
+					</Column>
+					<Column id="nameColumn2">
+						<Text text="{i18n>actCol2}" id="textColumn2" />
+					</Column>
+					<Column id="nameColumn3">
+						<Text text="{i18n>actCol3}" id="textColumn3" />
+					</Column>
+					<Column id="nameColumn4">
+						<Text text="{i18n>actCol4}" id="textColumn4" />
+					</Column>
+					<Column id="nameColumn5">
+						<Text text="{i18n>actCol5}" id="textColumn5" />
+					</Column>
+					<Column id="nameColumn6">
+						<Text text="{i18n>actCol6}" id="textColumn6" />
+					</Column>
+				</columns>
+				<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{Anln1}" />
+						<Text text="{Txt50}" />
+						<Text text="{Zzserieampliado}" />
+						<Text text="{Anln1}" />
+						<Text text="{ZzasignaUsu}" />
+						<Text text="{ZzubicTecn}" />
+					</cells>
+				</ColumnListItem>
+				</items>				
+			</Table>
 		</semantic:content>
-
 	</semantic:MasterPage>
-
 </mvc:View>

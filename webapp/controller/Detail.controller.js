@@ -5,12 +5,14 @@ sap.ui.define([
 	"use strict";
 	return BaseController.extend("cl.everis.cgr.actvinst.allCGRActvInstAll.controller.Detail", {
 		onInit: function() {
+			var vUser = "Usuario Hefestos";
 			// Model used to manipulate control states. The chosen values make sure,
 			// detail page is busy indication immediately so there is no break in
 			// between the busy indication for loading the view's meta data
 			var oViewModel = new JSONModel({
 				busy: false,
 				delay: 0,
+				user: vUser,
 				lineItemListTitle: this.getResourceBundle().getText("detailLineItemTableHeading")
 			});
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
