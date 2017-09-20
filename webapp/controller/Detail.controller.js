@@ -1,7 +1,10 @@
 sap.ui.define([
 	"cl/everis/cgr/actvinst/allCGRActvInstAll/controller/BaseController",
-	"sap/ui/model/json/JSONModel"
-], function(BaseController, JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"sap/m/MessageBox",
+	"sap/ui/core/util/Export",
+	"sap/ui/core/util/ExportTypeCSV"
+], function(BaseController, JSONModel, MessageBox, Export, ExportTypeCSV) {
 	"use strict";
 	return BaseController.extend("cl.everis.cgr.actvinst.allCGRActvInstAll.controller.Detail", {
 		onInit: function() {
@@ -18,6 +21,53 @@ sap.ui.define([
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 			this.setModel(oViewModel, "detailView");
 			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
+		},
+		onExcel: sap.m.Table.prototype.exportData || function(oEvt){
+			var oExport = new Export({
+				// Type that will be used to generate the content. Own ExportType's can be created to support other formats
+				exportType : new ExportTypeCSV({
+					separatorChar : ";"
+				}),
+				// Pass in the model created above
+				models : this.getView().getModel(),
+				// binding information for the rows aggregation
+				rows : {
+					path : "/AssetsByLocationSet"
+				},
+				// column definitions with column name and binding info for the content
+				columns : [{
+					name : this.getResourceBundle().getText("actCol1"),
+					template : {
+						content : "{Anln1}"
+					}
+				}, {
+					name : this.getResourceBundle().getText("actCol2"),
+					template : {
+						content : "{Txt50}"
+					}
+				},{	
+					name : this.getResourceBundle().getText("actCol3"),
+					template : {
+						content : "{Zzserieampliado}"
+					}
+				},{
+					name : this.getResourceBundle().getText("actCol5"),
+					template : {
+						content : "{ZzasignaUsu}"
+					}
+				},{
+					name : this.getResourceBundle().getText("actCol6"),
+					template : {
+						content : "{ZzubicTecn}"
+					}	
+				}]
+			});
+			// download exported file
+			oExport.saveFile().catch(function(oError) {
+				MessageBox.error("Error when downloading data. Browser might not be supported!\n\n" + oError);
+			}).then(function() {
+				oExport.destroy();
+			});
 		},
 		/* =========================================================== */
 		/* begin: internal methods                                     */
