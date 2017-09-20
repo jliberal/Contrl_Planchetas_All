@@ -20,7 +20,7 @@
 					<ToolbarSpacer/>
 					<OverflowToolbarButton type="Transparent" icon="sap-icon://excel-attachment" press="onExcel"/>
 					<OverflowToolbarButton type="Transparent" icon="sap-icon://filter" press="onfilter"/>
-					<OverflowToolbarButton type="Transparent" icon="sap-icon://excel-attachment" press="onExcel"/>
+					<!--<OverflowToolbarButton type="Transparent" icon="sap-icon://excel-attachment" press="onExcel"/>-->
 				</Toolbar>
 		   </headerToolbar>
 				<columns>
