@@ -18,7 +18,9 @@
 				<Toolbar>
 					<Title text="{i18n>ActTabTitle}" level="H2"/>
 					<ToolbarSpacer/>
-					<OverflowToolbarButton type="Transparent" text="{i18n>empTabPrint}" icon="sap-icon://print" press="onPrint"/>
+					<OverflowToolbarButton type="Transparent" icon="sap-icon://excel-attachment" press="onExcel"/>
+					<OverflowToolbarButton type="Transparent" icon="sap-icon://filter" press="onfilter"/>
+					<OverflowToolbarButton type="Transparent" icon="sap-icon://excel-attachment" press="onExcel"/>
 				</Toolbar>
 		   </headerToolbar>
 				<columns>
