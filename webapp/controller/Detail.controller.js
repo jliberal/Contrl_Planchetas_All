@@ -30,7 +30,7 @@ sap.ui.define([
 				}),
 				// Pass in the model created above
 				models : this.getView().getModel(),
-			//	oexport.String('Cosas para ver')
+				
 				// binding information for the rows aggregation
 				rows : {
 					path : "/hierarchy_treeSet('R01')/AssetsByLocationSet"
