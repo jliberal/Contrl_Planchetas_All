@@ -37,9 +37,10 @@ sap.ui.define([
 				}),
 				// Pass in the model created above
 				models : this.getView().getModel(),
+				
 				// binding information for the rows aggregation
 				rows : {
-					path : "/AssetsByLocationSet"
+					path : "/hierarchy_treeSet('R01')/AssetsByLocationSet"
 				},
 				// column definitions with column name and binding info for the content
 				columns : [{
