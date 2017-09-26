@@ -22,6 +22,13 @@ sap.ui.define([
 			this.setModel(oViewModel, "detailView");
 			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
 		},
+		onSearchLocation: function(oEvt){
+			var oModel = oEvt.getSource();
+			//var oModel = oEvt.getOw
+			//oBinding = oModel.bindList("Products"),
+			//oFilter = new sap.ui.model.Filter("ProductName", sap.ui.model.FilterOperator.EndsWith, "e");
+			//oBinding.filter([oFilter]);			
+		},		
 		onExcel: sap.m.Table.prototype.exportData || function(oEvt){
 			var oExport = new Export({
 				// Type that will be used to generate the content. Own ExportType's can be created to support other formats

@@ -1,0 +1,51 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar"
+	height="100%"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
+			<fb:filterItems>
+				<fb:FilterItem name="A" label="Delivery Date">
+					<fb:control>
+						<Input type="Text" />
+					</fb:control>				
+				</fb:FilterItem>
+				
+				<fb:FilterItem name="B" label="Region" labelTooltip="Tooltip Example" mandatory="true">
+					<fb:control>
+						<Input type="Text"/>
+					</fb:control>				
+				</fb:FilterItem>				
+			</fb:filterItems>
+			
+			<fb:filterGroupItems>
+				<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="A" label="Company" labelTooltip="Tooltip GroupItem Example">
+					<fb:control>
+						<Input type="Text"/>
+					</fb:control>				
+				</fb:FilterGroupItem>
+				
+				<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="B" label="Customer">
+					<fb:control>
+						<Input type="Text"/>
+					</fb:control>				
+				</fb:FilterGroupItem>				
+				
+				<fb:FilterGroupItem groupName="G2" groupTitle="Group2" name="A2" label="Supplier" labelTooltip="Tooltip GroupItem Example">
+					<fb:control>
+						<Input type="Text"/>
+					</fb:control>				
+				</fb:FilterGroupItem>
+				
+				<fb:FilterGroupItem groupName="G2" groupTitle="Group2" name="B2" label="Category">
+					<fb:control>
+						<Input type="Text"/>
+					</fb:control>				
+				</fb:FilterGroupItem>					
+			</fb:filterGroupItems>				
+					
+	    </fb:FilterBar>		
+</core:FragmentDefinition>	

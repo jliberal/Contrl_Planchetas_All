@@ -18,8 +18,13 @@
 				<Toolbar>
 					<Title text="{i18n>ActTabTitle}" level="H2"/>
 					<ToolbarSpacer/>
+						<SearchField
+								id="searchField"
+								search="onSearchLocation"
+								tooltip="{i18n>worklistSearchTooltip}"
+								width="auto"/>
+					<ToolbarSpacer/>
 					<OverflowToolbarButton type="Transparent" icon="sap-icon://excel-attachment" press="onExcel"/>
-					<OverflowToolbarButton type="Transparent" icon="sap-icon://filter" press="onfilter"/>
 					<!--<OverflowToolbarButton type="Transparent" icon="sap-icon://excel-attachment" press="onExcel"/>-->
 				</Toolbar>
 		   </headerToolbar>
