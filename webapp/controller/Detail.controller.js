@@ -23,13 +23,16 @@ sap.ui.define([
 			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
 		},
 		onSearchLocation: function(oEvt){
-			var oModel = oEvt.getSource();
-			//var oModel = oEvt.getOw
-			//oBinding = oModel.bindList("Products"),
-			//oFilter = new sap.ui.model.Filter("ProductName", sap.ui.model.FilterOperator.EndsWith, "e");
-			//oBinding.filter([oFilter]);			
+			var oTable = this.getView().byId("idEmployeesTable");
+			//var oModel = this.getView().getController().getOwnerComponent().getModel();
+			var oFilter = new sap.ui.model.Filter("ZzubicTecn", sap.ui.model.FilterOperator.Contains, oEvt.getParameter("query"));
+			var oBinding = oTable.getBinding("items");
+			oBinding.filter([oFilter]);		
 		},		
 		onExcel: sap.m.Table.prototype.exportData || function(oEvt){
+			var oId = this.getView().byId("NodeIdText");
+			var vPath = oId.getProperty("text");
+		    vPath = "/hierarchy_treeSet('" + vPath + "')/AssetsByLocationSet";
 			var oExport = new Export({
 				// Type that will be used to generate the content. Own ExportType's can be created to support other formats
 				exportType : new ExportTypeCSV({
@@ -40,7 +43,7 @@ sap.ui.define([
 				
 				// binding information for the rows aggregation
 				rows : {
-					path : "/hierarchy_treeSet('R01')/AssetsByLocationSet"
+					path : vPath
 				},
 				// column definitions with column name and binding info for the content
 				columns : [{

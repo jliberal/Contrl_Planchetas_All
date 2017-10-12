@@ -8,7 +8,7 @@
 							id="__header0">
 				<attributes>
 					<ObjectAttribute title="{i18n>logUser}" text="{detailView>/user}"/>
-					<ObjectAttribute title="{i18n>location}" text="{Nodeid}"/>
+					<ObjectAttribute id="NodeIdText" title="{i18n>location}" text="{Nodeid}"/>
 				</attributes>
 			</ObjectHeader>	
 			<Toolbar width="100%" id="__toolbar1"/>
@@ -23,7 +23,6 @@
 								search="onSearchLocation"
 								tooltip="{i18n>worklistSearchTooltip}"
 								width="auto"/>
-					<ToolbarSpacer/>
 					<OverflowToolbarButton type="Transparent" icon="sap-icon://excel-attachment" press="onExcel"/>
 					<!--<OverflowToolbarButton type="Transparent" icon="sap-icon://excel-attachment" press="onExcel"/>-->
 				</Toolbar>
