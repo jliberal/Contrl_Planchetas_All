@@ -19,14 +19,20 @@ sap.ui.define([
 		},
 		onPressNode: function(oEvt){
 			var oNode = oEvt.getSource();
-			var oCtx1 = oNode.findAggregatedObjects();
-			var oCtx2 = oCtx1[0].findAggregatedObjects();
-			var vLocation = oCtx2[0].getText();
-			//Ya tenemos la ubicacion
-			var bReplace = !Device.system.phone;
-			this.getRouter().navTo("object", {
-				objectId : vLocation
-			}, bReplace);
+			var regExp = /\(([^)]+)\)/;
+			var vCtx1 = oNode.getTitle();
+			var tCtx = regExp.exec(vCtx1);
+			if (tCtx[1]){
+				//Ya tenemos la ubicacion
+				var bReplace = !Device.system.phone;
+				var vLocation = tCtx[1];
+				this.getRouter().navTo("object", {
+					objectId : vLocation
+				}, bReplace);
+			}else{
+				var vText = this.getResourceBundle().getText("errorPressNode");
+				this.showServiceError(vText);
+			}
 		},
 		readService: function(ivPath, callBack){
 			var that = this;

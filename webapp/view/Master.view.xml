@@ -29,13 +29,13 @@
 		<Tree
 		    id="Tree" 
 		    items="{path: 'treeModel>/'}">
-			<!--<StandardTreeItem type="Active" press="onPressNode" title="{treeModel>text}"/>-->
-			<CustomTreeItem type="Active" press="onPressNode">
+			<StandardTreeItem type="Active" press="onPressNode" title="{treeModel>text} ({treeModel>id})"/>
+			<!--<CustomTreeItem type="Active" press="onPressNode">
 				<FlexBox alignItems="Start" width="100%">
 					<Label id="NodoLab1" text="{treeModel>id}" visible="false"></Label>
 					<Label id="TextoLab1" text="{treeModel>text}"></Label>
 				</FlexBox>
-			</CustomTreeItem>
+			</CustomTreeItem>-->
 		</Tree>	
 		</semantic:content>
 
