@@ -12,7 +12,7 @@ sap.ui.define([
 		createTreeModel: function(oView){
 			//Buscar tree desde SAP
 			var vPath = "/hierarchy_treeSet";
-			this.readService(vPath,this.doTreeModelCallback);
+			this.readService(vPath,this.doTreeModelCallback,[]);
 		},
 		onSelectedTree: function(oEvt){
 			var aux = 2;	
@@ -20,10 +20,9 @@ sap.ui.define([
 		onSearchLocation: function(oEvt){
 			//Buscar tree desde SAP
 			var vQuery = oEvt.getParameter("query");
-			var vPath = "/hierarchy_treeSet?$filter=Nodeid eq '" +
-						vQuery +
-						"'";
-			this.readService(vPath,this.doTreeModelCallback);
+			var vPath = "/hierarchy_treeSet";
+			var oFilter = new sap.ui.model.Filter("Nodeid", sap.ui.model.FilterOperator.Contains, vQuery);
+			this.readService(vPath,this.doTreeModelCallback,[oFilter]);
 		},	
 		onPressNode: function(oEvt){
 			var oNode = oEvt.getSource();
@@ -42,7 +41,7 @@ sap.ui.define([
 				this.showServiceError(vText);
 			}
 		},
-		readService: function(ivPath, callBack){
+		readService: function(ivPath, callBack, filters){
 			var that = this;
 			//var sServiceUrl = "/destinations/Contraloria/sap/opu/odata/SAP/ZFI_AF_INST_ASSETS_ALL_SRV/";
 			//var oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
@@ -53,6 +52,7 @@ sap.ui.define([
 				"Accept": "application/json; charset=utf-8"
 			});
 			oModel.read(ivPath,{
+				filters: filters,
 				success: function (oData, response){
 					callBack(oData, that);
 				},
