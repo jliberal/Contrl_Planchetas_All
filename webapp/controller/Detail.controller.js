@@ -3,11 +3,14 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/m/MessageBox",
 	"sap/ui/core/util/Export",
-	"sap/ui/core/util/ExportTypeCSV"
-], function(BaseController, JSONModel, MessageBox, Export, ExportTypeCSV) {
+	"sap/ui/core/util/ExportTypeCSV",
+	"sap/m/PDFViewer"
+], function(BaseController, JSONModel, MessageBox, Export, ExportTypeCSV,PDFViewer) {
 	"use strict";
 	return BaseController.extend("cl.everis.cgr.actvinst.allCGRActvInstAll.controller.Detail", {
 		onInit: function() {
+			this._pdfViewer = new PDFViewer();
+			//this.getView().addDependent(this._pdfViewer);
 			var vUser = "Usuario Hefestos";
 			// Model used to manipulate control states. The chosen values make sure,
 			// detail page is busy indication immediately so there is no break in
@@ -28,7 +31,18 @@ sap.ui.define([
 			var oFilter = new sap.ui.model.Filter("ZzubicTecn", sap.ui.model.FilterOperator.Contains, oEvt.getParameter("query"));
 			var oBinding = oTable.getBinding("items");
 			oBinding.filter([oFilter]);		
-		},		
+		},	
+		onPdf:  function(oEvt){
+			var oId = this.getView().byId("NodeIdText");
+			var vPath = oId.getProperty("text");
+			vPath = "/PDFSet('" + vPath + "')/$value";
+			var oModel = this.getOwnerComponent().getModel();
+			vPath = oModel.sServiceUrl + vPath; 
+			var vTitle = this.getResourceBundle().getText("pdfPageTitle");
+			this._pdfViewer.setSource(vPath);
+			this._pdfViewer.setTitle(vTitle);
+			this._pdfViewer.open();
+		},
 		onExcel: sap.m.Table.prototype.exportData || function(oEvt){
 			var oId = this.getView().byId("NodeIdText");
 			var vPath = oId.getProperty("text");

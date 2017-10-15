@@ -24,6 +24,7 @@
 								tooltip="{i18n>worklistSearchTooltip}"
 								width="auto"/>
 					<OverflowToolbarButton type="Transparent" icon="sap-icon://excel-attachment" press="onExcel"/>
+					<OverflowToolbarButton type="Transparent" icon="sap-icon://pdf-attachment" press="onPdf"/>
 					<!--<OverflowToolbarButton type="Transparent" icon="sap-icon://excel-attachment" press="onExcel"/>-->
 				</Toolbar>
 		   </headerToolbar>
