@@ -17,6 +17,13 @@ sap.ui.define([
 		onSelectedTree: function(oEvt){
 			var aux = 2;	
 		},
+		onSearchLocation: function(oEvt){
+			var oTree = this.getView().byId("Tree");
+			//var oModel = this.getView().getController().getOwnerComponent().getModel();
+			var oFilter = new sap.ui.model.Filter("ZzubicTecn", sap.ui.model.FilterOperator.Contains, oEvt.getParameter("query"));
+			var oBinding = oTree.getBinding("items");
+			oBinding.filter([oFilter]);		
+		},	
 		onPressNode: function(oEvt){
 			var oNode = oEvt.getSource();
 			var regExp = /\(([^)]+)\)/;
