@@ -53,7 +53,7 @@
 						<Text text="{Anln1}" />
 						<Text text="{Txt50}" />
 						<Text text="{Zzserieampliado}" />
-						<Text text="{Anln1}" />
+						<Text text="{Invnr}" />
 						<Text text="{ZzasignaUsu}" />
 						<Text text="{ZzubicTecn}" />
 					</cells>
