@@ -25,6 +25,9 @@
 								width="auto"/>
 					<OverflowToolbarButton type="Transparent" icon="sap-icon://excel-attachment" press="onExcel"/>
 					<OverflowToolbarButton type="Transparent" icon="sap-icon://pdf-attachment" press="onPdf"/>
+					<!--<Link	text="PDF"
+							target="_blank"
+							href="{detailView>/pdfLink}" />-->
 					<!--<OverflowToolbarButton type="Transparent" icon="sap-icon://excel-attachment" press="onExcel"/>-->
 				</Toolbar>
 		   </headerToolbar>
