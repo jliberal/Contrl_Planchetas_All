@@ -14,7 +14,7 @@
 										titleActive="false" 
 										id="__header0">
 							<attributes>
-								<ObjectAttribute title="{i18n>logUser}" text="{detailView>/user}"/>
+								<ObjectAttribute title="{i18n>logUser}" text="{identityModel>/fullName}"/>
 								<ObjectAttribute id="NodeIdText" title="{i18n>location}" text="{Nodeid}"/>
 							</attributes>
 							<layoutData>

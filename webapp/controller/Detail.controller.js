@@ -8,6 +8,13 @@ sap.ui.define([
 	"use strict";
 	return BaseController.extend("cl.everis.cgr.actvinst.allCGRActvInstAll.controller.Detail", {
 		onInit: function() {
+			var identityModel = this.getOwnerComponent().getModel("identityModel");
+			if (!identityModel){
+				this.getHeaderBeforeMe(this.doIdentityCallback);
+			}else{		
+				var identity = identityModel.getData();
+				this.createTreeModel(identity.modelData,this);
+			}
 			//this._pdfViewer = new PDFViewer();
 			//this.getView().addDependent(this._pdfViewer);
 			var vUser = "Usuario Hefestos";
@@ -23,6 +30,48 @@ sap.ui.define([
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 			this.setModel(oViewModel, "detailView");
 			this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
+		},
+		getHeaderBeforeMe: function(callBack){
+			var oModel = new sap.ui.model.json.JSONModel();
+			var that = this;
+			jQuery.ajax({
+				type : "GET",
+				contentType : "application/json",
+				url : "/cgropen/institutional-assets/api/user",
+				dataType : "json",
+				async: false, 
+				success : function(data,textStatus, jqXHR) {
+					if ( data === "Undefined" ){
+						oModel.setData({modelData : { "iv-user": "Malcainor" }});//5824136-9
+					}else{
+						oModel.setData({modelData : data});
+					}
+					callBack(oModel, that);
+				},
+				error: function(error, jqXHR){
+					oModel.setData({modelData : {"iv-user": "Malcainor" }});
+					callBack(oModel, that);
+				}
+			});
+		},
+		doIdentityCallback: function(oModel,controller){
+			var oData = oModel.getData();
+			//Creamos modelo
+			controller.getOwnerComponent().setModel(oModel,"identityModel");
+			//Buscamos Datos de Hefestos
+			controller.getLoggedData(oData);
+		},
+		getLoggedData: function(oData){
+			var vVar = "iv-user";
+			var vPath = "/DataHefestosSet('" + oData.modelData[vVar] + "')";
+			this.readService(vPath,this.doLoggedModelCallback,[]);
+		},
+		doLoggedModelCallback: function(vData,controller){
+			var oModel = controller.getOwnerComponent().getModel("identityModel");
+			var oData = oModel.getData();
+			oData.fullName = vData.EvName;
+			oModel.setData(oData);
+			controller.getOwnerComponent().setModel(oModel,"identityModel");
 		},
 		onSearchLocation: function(oEvt){
 			var oTable = this.getView().byId("idEmployeesTable");

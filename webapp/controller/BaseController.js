@@ -74,6 +74,26 @@ sap.ui.define([
 					}.bind(this)
 				});
 			},
+			readService: function(ivPath, callBack, filters){
+				var that = this;
+				//var sServiceUrl = "/destinations/Contraloria/sap/opu/odata/SAP/ZFI_AF_INST_ASSETS_ALL_SRV/";
+				//var oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+				var oModel = this.getOwnerComponent().getModel();
+				oModel.setHeaders({
+					"DataServiceVersion": "2.0",
+					"MaxDataServiceVersion": "2.0",
+					"Accept": "application/json; charset=utf-8"
+				});
+				oModel.read(ivPath,{
+					filters: filters,
+					success: function (oData, response){
+						callBack(oData, that);
+					},
+					error: function (oError){
+						that.showServiceError(oError.response);
+					}
+				});
+			},			
 			clearModel: function(vModel){
 				var oModel = new JSONModel({});
 				this.getView().setModel(oModel,vModel);
