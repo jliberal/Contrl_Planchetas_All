@@ -27,6 +27,15 @@
         "entryPath": "/test-resources"
       },
       "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "Contraloria",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "Contraloria Gateway"
     }
   ],
   "sendWelcomeFileRedirect": true

@@ -3,14 +3,35 @@
 	<semantic:MasterPage id="page2" title="{masterView>/title}">
 		<semantic:subHeader></semantic:subHeader>
 		<semantic:content>
-			<ObjectHeader	title="{Description}" 
-							titleActive="false" 
-							id="__header0">
-				<attributes>
-					<ObjectAttribute title="{i18n>logUser}" text="{detailView>/user}"/>
-					<ObjectAttribute id="NodeIdText" title="{i18n>location}" text="{Nodeid}"/>
-				</attributes>
-			</ObjectHeader>	
+			<FlexBox
+					width="100%"
+					class="columns"
+					renderType="Div"
+					alignItems="Stretch"
+					justifyContent="Start">
+					<items>
+						<ObjectHeader	title="{Description}" 
+										titleActive="false" 
+										id="__header0">
+							<attributes>
+								<ObjectAttribute title="{i18n>logUser}" text="{detailView>/user}"/>
+								<ObjectAttribute id="NodeIdText" title="{i18n>location}" text="{Nodeid}"/>
+							</attributes>
+							<layoutData>
+								<FlexItemData growFactor="3" />
+							</layoutData>
+						</ObjectHeader>	
+						<Image
+							src="/webapp/img/LOGO_CGR_2.bmp"
+							densityAware="false"
+							class="sapUiSmallMargin"
+							width="150px" >	
+							<layoutData>
+								<FlexItemData growFactor="2" />
+							</layoutData>
+						</Image>
+					</items>
+				</FlexBox>
 			<Toolbar width="100%" id="__toolbar1"/>
 			 <Table id="idEmployeesTable"  
 					items="{AssetsByLocationSet}">
